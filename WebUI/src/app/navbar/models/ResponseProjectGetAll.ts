@@ -1,4 +1,4 @@
 export class ResponseProjectGetAll {
-  ProjectName: string | null;
-  IdProject: number;
+  projectName: string | null;
+  idProject: number;
 }

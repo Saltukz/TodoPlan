@@ -16,3 +16,16 @@ export class Task{
   Duration:number;
   Difficulty:number;
 }
+export interface ResponseProjectGet {
+  name: string | null;
+  time: number | null;
+  lstDeveloper: DeveloperVM[] | null;
+}
+
+export interface DeveloperVM {
+  IdDeveloper: number;
+  IdProject: number;
+  Name: string;
+  Capacity: number;
+  IsGotTask: boolean;
+}

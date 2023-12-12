@@ -10,6 +10,7 @@ namespace Business;
 
 public interface ICalculateFactory
 {
+    Task<decimal?> CalculateProjectTime(int id);
     Task OrganizeSchedule(int idProject);
 
     Task<ResponseSaveProject> SaveProject(Project project, List<Developer> developers, List<ProjectTask> tasks);

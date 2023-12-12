@@ -10,5 +10,5 @@ public class ResponseProjectGet
 {
     public string? Name { get; set; }
     public decimal? Time { get; set; }
-    public List<DeveloperVM> lstDeveloper { get; set; }
+    public List<DeveloperVM>? lstDeveloper { get; set; }
 }

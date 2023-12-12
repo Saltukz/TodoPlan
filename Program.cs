@@ -2,6 +2,7 @@ using AutoMapper;
 using Business;
 using Business.ProviderBusiness.MapperProfile;
 using Microsoft.EntityFrameworkCore;
+using ToDo_Planning.Business;
 using ToDo_Planning.Entities;
 
 //using ToDo_Planning.Entities;
@@ -35,6 +36,7 @@ builder.Services.AddScoped<ICalculateFactory, CalculateFactory>();
 builder.Services.AddScoped<IProviderService, ProviderService>();
 builder.Services.AddScoped<IProjectBusiness, ProjectBusiness>();
 builder.Services.AddScoped<IDeveloperBusiness, DeveloperBusiness>();
+builder.Services.AddScoped<IScheduleBusiness, ScheduleBusiness>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

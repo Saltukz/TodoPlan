@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
 
   projectList$ = this.service.projectList$;
+
   constructor(private service: NavbarService) {}
 
   ngOnInit(): void {

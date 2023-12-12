@@ -25,7 +25,7 @@ export class NavbarService {
       this.http.get<ResponseModel<ResponseProjectGet>>(`${environment.apiUrl}/Project/Get/${id}`).pipe(
         map((response: ResponseModel<ResponseProjectGet>) => {
           if (response.IsSuccess) {
-            return response.Data;
+            return response.data;
           }
         })
       )
@@ -42,8 +42,9 @@ export class NavbarService {
     await lastValueFrom(
       this.getAllProject().pipe(
         map(response => {
-          console.log('response',response)
-            this._projectList.next(response.DataList);
+          console.log('response',response.dataList)
+            this._projectList.next(response.dataList);
+            console.log('projectListService',this.projectList$)
         })
       )
     );

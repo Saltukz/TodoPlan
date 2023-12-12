@@ -192,4 +192,36 @@ public class CalculateFactory : ICalculateFactory
 
         return null;
     }
+
+    public async Task<decimal?> CalculateProjectTime(int id)
+    {
+        var project = await _context.Projects.FindAsync(id);
+
+        var projectTasks = await _context.ProjectTasks
+            .Where(x => x.IdProject == id)
+            .ToListAsync();
+
+        var projectTaskCr = await _context.DeveloperProjectTaskCrs
+            .Where(x => projectTasks.Select(pt => pt.IdTask).Contains(x.IdTask))
+            .ToListAsync();
+
+        var earliestTask = projectTaskCr.OrderBy(x => x.StartTime).FirstOrDefault();
+        var latestTask = projectTaskCr.OrderByDescending(x => x.EndTime).FirstOrDefault();
+
+        if (earliestTask != null && latestTask != null && earliestTask.StartTime.HasValue && latestTask.EndTime.HasValue)
+        {
+            var projectStart = earliestTask.StartTime.Value;
+            var projectEnd = latestTask.EndTime.Value;
+
+            var projectDuration = projectEnd - projectStart;
+
+            var totalWeeks = Math.Ceiling(projectDuration.TotalDays / 7);
+
+            return Convert.ToDecimal(totalWeeks);
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

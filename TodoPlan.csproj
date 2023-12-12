@@ -33,8 +33,7 @@
 
 
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="Model\" />
+    <Folder Include="Business\ScheduleBusiness\MapperProfile\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 

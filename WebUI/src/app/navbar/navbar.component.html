@@ -16,8 +16,8 @@
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let project of (projectList$ | async)">
-              <a class="dropdown-item" [routerLink]="['/project', project.IdProject]">
-                {{ project.ProjectName }}
+              <a class="dropdown-item" [routerLink]="['/project', project.idProject]">
+                {{ project.projectName }}
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
